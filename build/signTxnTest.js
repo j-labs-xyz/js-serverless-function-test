@@ -14282,8 +14282,8 @@ var require_lib12 = __commonJS({
       value: true
     };
     function computeAddress2(key) {
-      var publicKey2 = (0, signing_key_1.computePublicKey)(key);
-      return (0, address_1.getAddress)((0, bytes_1.hexDataSlice)((0, keccak256_1.keccak256)((0, bytes_1.hexDataSlice)(publicKey2, 1)), 12));
+      var publicKey = (0, signing_key_1.computePublicKey)(key);
+      return (0, address_1.getAddress)((0, bytes_1.hexDataSlice)((0, keccak256_1.keccak256)((0, bytes_1.hexDataSlice)(publicKey, 1)), 12));
     }
     exports.computeAddress = computeAddress2;
     function recoverAddress(digest, signature) {
@@ -14614,14 +14614,13 @@ var import_js_sha3 = __toESM(require_sha3(), 1);
 console.log("running!");
 var pkp = {
   "status": "Succeeded",
-  "pkpEthAddress": "0xfD3ed51076CF91570cC345d48FA5C411FCE96B72",
+  "pkpEthAddress": "0x239e847590EB7F553487F2bC45160a73F3532d30",
   "pkpPublicKey": "04944c839a484c29573250cc4e1f8f560938b371d0b47ded359683f5fe2c0de9bbc3c9d812d69317928a2fdd4b125d2436a33dddbe5417ec66c29adb60482a570b"
 };
 var toAddress = "0x535b0dABaF59c90EeeBEf272b5F778C5369a1445";
 var chainId = 80001;
-var publicKey = pkp.pkpPublicKey;
 var go = async () => {
-  const fromAddress = (0, import_transactions.computeAddress)(publicKey);
+  const fromAddress = pkp.pkpEthAddress;
   const latestNonce = await Lit.Actions.getLatestNonce({
     address: fromAddress,
     chain: "mumbai"
@@ -14644,7 +14643,7 @@ var go = async () => {
   const toSign = unsignedTxn;
   const sig = await LitActions.signEcdsa({
     toSign,
-    publicKey,
+    publicKey: pkp.pkpPublicKey,
     sigName: "sig1"
   });
   console.log("sig: ", sig);
