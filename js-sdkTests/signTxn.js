@@ -24,11 +24,18 @@ const go = async () => {
   // you need an AuthSig to auth with the nodes
   // normally you would obtain an AuthSig by calling LitJsSdk.checkAndSignAuthMessage({chain})
   // NOTE: to replace with a new one that you get from oauth-pkp-signup-example
-  const authSig = await generateAuthsig(
-    "localhost",
-    "http://localhost:3000",
-    "175177" // chronicle chain id
-  );
+  // const authSig = await generateAuthsig(
+  //   "localhost",
+  //   "http://localhost:3000",
+  //   "175177" // chronicle chain id
+  // );
+
+  const authSig = {
+    "sig": "0xc32039c053f9055c3deaa028f9e9871461b3013f8bee09f014a0a7cc3d0d17940e159321b385a8722d1fd53b376eb8fc10339181b0438d6ca7bc939890e4b5821c",
+    "derivedVia": "web3.eth.personal.sign via Lit PKP",
+    "signedMessage": "localhost:3000 wants you to sign in with your Ethereum account:\n0x239e847590EB7F553487F2bC45160a73F3532d30\n\nLit Protocol PKP session signature I further authorize the stated URI to perform the following actions on my behalf: (1) '*': '*' for 'lit-accesscontrolcondition://00d1e180cfa487da9cdfca819d4619a3dea499c71aabc2a08518782d02c7d30d'.\n\nURI: lit:session:6894e83415d38630cef8805fedecfd672999659871c14bf6c9aed52560113676\nVersion: 1\nChain ID: 1\nNonce: skYaOVzB3uVj3AU0m\nIssued At: 2023-06-15T02:21:48.747Z\nExpiration Time: 2023-06-16T02:21:48.578Z\nResources:\n- urn:recap:eyJhdHQiOnsibGl0LWFjY2Vzc2NvbnRyb2xjb25kaXRpb246Ly8wMGQxZTE4MGNmYTQ4N2RhOWNkZmNhODE5ZDQ2MTlhM2RlYTQ5OWM3MWFhYmMyYTA4NTE4NzgyZDAyYzdkMzBkIjp7IiovKiI6W3t9XX19LCJwcmYiOltdfQ",
+    "address": "0x239e847590EB7F553487F2bC45160a73F3532d30"
+  };
 
   const results = await litNodeClient.executeJs({
     code: litActionCode,

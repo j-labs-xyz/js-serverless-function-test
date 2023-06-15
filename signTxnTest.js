@@ -7,8 +7,8 @@ console.log("running!");
 // generic auth signature with a permitted address.
 const pkp = {
   "status": "Succeeded",
-  "pkpEthAddress": "0xfF8A9000a9866561dad7596f3342Fec18e8130d1",
-  "pkpPublicKey": "0x04cb229885d49c49559c3a45c91adae12ecf5b578412d666991a6f31b647b96327b82f719aa755e08c0432d25a234774908bb795c06778aa4b5900d21a7f4a7495"
+  "pkpEthAddress": "0x239e847590EB7F553487F2bC45160a73F3532d30",
+  "pkpPublicKey": "04944c839a484c29573250cc4e1f8f560938b371d0b47ded359683f5fe2c0de9bbc3c9d812d69317928a2fdd4b125d2436a33dddbe5417ec66c29adb60482a570b"
 };
 
 const toAddress = "0x535b0dABaF59c90EeeBEf272b5F778C5369a1445"; // J Labs test account
