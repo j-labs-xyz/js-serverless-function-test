@@ -103,9 +103,26 @@ const go = async () => {
     }
   };
 
+  const authSig = {
+    sig: '0x39612ffd5e42c5089db6eabe17069f0b0afe2c639ab3f69277b88fa5ca6163941650f182e796eb82163632a84cfb11ae2890b6cf21365803c1e198c9e3b094de1c',
+    derivedVia: 'web3.eth.personal.sign',
+    signedMessage: 'localhost wants you to sign in with your Ethereum account:\n' +
+      '0x8C433380fF7c82dE5A2e10D5D1853B56a2Ef24Aa\n' +
+      '\n' +
+      '\n' +
+      'URI: https://localhost\n' +
+      'Version: 1\n' +
+      'Chain ID: 175177\n' +
+      'Nonce: 3KKPKtWtub9HKI2ba\n' +
+      'Issued At: 2023-07-07T12:34:01.133Z\n' +
+      'Expiration Time: 2023-07-14T12:34:01.124Z',
+    address: '0x8C433380fF7c82dE5A2e10D5D1853B56a2Ef24Aa'
+  };
+
   const results = await litNodeClient.executeJs({
     code: litActionCode,
-    sessionSigs: sessionSigs,
+    //sessionSigs: sessionSigs,
+    authSig,
     jsParams: {},
   });
   
